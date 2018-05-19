@@ -33,14 +33,13 @@ The scope of this example is to demonstrate failure detection of
 application instances, and how Cloud Foundry can handle it.
 
 This is where Spring Boot Actuator helps.
-Actuator handles health detection of many preexisting backing resource
-integrations as dependencies in our applications.
+Actuator handles detection of backing resource dependencies in
+our applications.
 
-We will demonstrate how to use custom health check logic to better
-handle graceful failures in a sample application, and using Actuator
-to expose it.
-Cloud Foundry will leverage Actuator health checks to dispose of
-unhealthy instances, and recreate them.
+We will demonstrate how to use an Actuator to expose a custom
+health check in a sample application.
+Cloud Foundry will leverage the Actuator health checks to
+dispose of unhealthy instances, and recover them.
 
 ## Prereqs
 
