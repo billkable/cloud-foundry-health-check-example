@@ -4,7 +4,7 @@ A trade off of running distributed applications is there are more
 types of downstream provider failures that may impact the upstream
 consumers.
 
-## Handling
+## Handling Failure
 
 Applications may fail in various ways:
 
