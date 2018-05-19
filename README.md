@@ -4,7 +4,7 @@ A trade off of running distributed applications is there are more
 types of downstream provider failures that may impact the upstream
 consumers.
 
-## Failure Modes
+## Handling
 
 Applications may fail in various ways:
 
@@ -16,18 +16,15 @@ Applications may fail in various ways:
 
 4.  Application process failures
 
-In our applications, we developers are on the hook to make sure
-the application dependency and backing resource failures are handled
-within the application.
-But this means we must handle non-functional concerns, as well as the
-business application concerns.
+In distributed applications, developers are on the hook to consider
+and handle liveness issues.
+But this means developers must handle non-functional concerns, as
+well as the business application concerns.
 
 In Cloud orchestration architectures including Kubernetes and Cloud
 Foundry, the Platform Operator role is responsible for hardening the
 underlying platforms, but failures still may occur.
 This is why we design our applications for *disposability*.
-
-## Handling Failures with REST Applications
 
 The scope of this example is to demonstrate failure detection of
 application instances, and how Cloud Foundry can handle it.
