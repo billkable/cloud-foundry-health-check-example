@@ -1,26 +1,12 @@
 # README
 
-## Overview
-
 A trade off of running distributed applications is there are more
 types of downstream provider failures that may impact the upstream
 consumers.
 
-If we were to run distributed applications with messaging
-integration protocols, we could leverage features such as a
-combination of guaranteed delivery, expiry/timeout and/or retry as
-part of our messaging integration solutions.
-
-But in the case of REST applications running over HTTP, we do
-not get any application level fault tolerance features as part of
-the HTTP protocol.
-
-The scope of this example is to demonstrate failure detection of
-REST application instances, and how Cloud Foundry can handle it.
-
 ## Failure Modes
 
-REST applications may fail in various ways:
+Applications may fail in various ways:
 
 1.  Hardware failures
 
@@ -30,16 +16,21 @@ REST applications may fail in various ways:
 
 4.  Application process failures
 
-In Cloud orchestration architectures including Kubernetes and Cloud
-Foundry, the Platform Operator role is responsible for hardening the
-underlying platforms, but failures still may occur.
-This is why we design our applications for *disposability*.
-
 In our applications, we developers are on the hook to make sure
 the application dependency and backing resource failures are handled
 within the application.
 But this means we must handle non-functional concerns, as well as the
 business application concerns.
+
+In Cloud orchestration architectures including Kubernetes and Cloud
+Foundry, the Platform Operator role is responsible for hardening the
+underlying platforms, but failures still may occur.
+This is why we design our applications for *disposability*.
+
+## Handling Failures with REST Applications
+
+The scope of this example is to demonstrate failure detection of
+application instances, and how Cloud Foundry can handle it.
 
 This is where Spring Boot Actuator helps.
 Actuator handles health detection of many preexisting backing resource
@@ -143,7 +134,7 @@ unhealthy instances, and recreate them.
     ```bash
     curl -i http://{route from your manifest}/1
     ```
-    
+
     You should see an HTTP 500 error.
 
 
